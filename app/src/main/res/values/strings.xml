@@ -10,4 +10,10 @@
       the License.
       -->
     <string name="app_name">AndroidDevChallenge</string>
+    <string name="welcome_background">Welcome background</string>
+    <string name="welcome_illos">Welcome illos</string>
+    <string name="logo">Logo</string>
+    <string name="bloom_description">Beautiful home garden solutions</string>
+    <string name="create_account">Create account</string>
+    <string name="log_in">Log in</string>
 </resources>

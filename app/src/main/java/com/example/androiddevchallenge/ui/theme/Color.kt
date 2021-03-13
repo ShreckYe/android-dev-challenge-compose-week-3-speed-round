@@ -16,8 +16,26 @@
 package com.example.androiddevchallenge.ui.theme
 
 import androidx.compose.ui.graphics.Color
+import kotlin.math.round
 
-val purple200 = Color(0xFFBB86FC)
-val purple500 = Color(0xFF6200EE)
-val purple700 = Color(0xFF3700B3)
-val teal200 = Color(0xFF03DAC5)
+fun fullAlphaColor(color: Int): Color {
+    require(color in 0..0xFFFFFF)
+    return Color(0xFF000000 or color.toLong())
+}
+
+fun percentAlphaColor(color: Int, alphaPercent: Int): Color {
+    require(color in 0..0xFFFFFF)
+    require(alphaPercent in 0..100)
+    val alpha = round(0xFF.toFloat() * alphaPercent / 100)
+    return Color(alpha.toLong() shl 24 or color.toLong())
+}
+
+val pink100 = fullAlphaColor(0xFFF1F1)
+val pink900 = fullAlphaColor(0x3F2C2C)
+val white = Color.White
+val white850 = percentAlphaColor(0xFFFFFF, 85)
+val gray = fullAlphaColor(0x232323)
+
+val green900 = fullAlphaColor(0x2D3B2D)
+val green300 = fullAlphaColor(0xB8C9B8)
+val white150 = percentAlphaColor(0xFFFFFF, 15)
