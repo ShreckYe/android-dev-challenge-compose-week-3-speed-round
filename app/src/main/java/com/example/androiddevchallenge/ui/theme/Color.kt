@@ -39,3 +39,5 @@ val gray = fullAlphaColor(0x232323)
 val green900 = fullAlphaColor(0x2D3B2D)
 val green300 = fullAlphaColor(0xB8C9B8)
 val white150 = percentAlphaColor(0xFFFFFF, 15)
+
+val gray50500 = fullAlphaColor(0x9E9E9E)

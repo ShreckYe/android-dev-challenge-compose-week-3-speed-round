@@ -12,16 +12,16 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavController
+import androidx.navigation.compose.navigate
+import androidx.navigation.compose.rememberNavController
 import com.example.androiddevchallenge.R
-import com.example.androiddevchallenge.ui.theme.MyTheme
 import com.example.androiddevchallenge.ui.theme.gray
 import com.example.androiddevchallenge.ui.theme.pink900
 import com.example.androiddevchallenge.ui.theme.white
 
 @Composable
-fun Welcome() {
-    val isLightTheme = MaterialTheme.colors.isLight
-
+fun Welcome(navController: NavController) {
     Image(
         painterResource(
             if (isLightTheme) R.drawable.ic_light_welcome_bg
@@ -47,15 +47,15 @@ fun Welcome() {
         )
         Text(
             stringResource(R.string.bloom_description),
-            Modifier.height(32.dp),
+            Modifier.paddingFromBaseline(top = 32.dp, bottom = 40.dp),
             style = MaterialTheme.typography.subtitle1,
-            color = if (isLightTheme) gray else white
+            color = defaultTextColor
         )
 
         Spacer(Modifier.height(40.dp))
 
         MyRoundButton(
-            onClick = { /*TODO*/ },
+            onClick = { /* not implemented */ },
             Modifier.padding(bottom = 8.dp)
         ) {
             Text(
@@ -65,7 +65,7 @@ fun Welcome() {
             )
         }
 
-        TextButton(onClick = { /*TODO*/ }) {
+        TextButton(onClick = { navController.navigate("log_in") }) {
             Text(
                 stringResource(R.string.log_in),
                 style = MaterialTheme.typography.button,
@@ -75,18 +75,16 @@ fun Welcome() {
     }
 }
 
-@Preview("Welcome Light Theme", widthDp = 360, heightDp = 640)
+@Preview("Welcome - Light Theme", widthDp = 360, heightDp = 640)
 @Composable
-fun WelcomeLightPreview() {
-    MyTheme {
-        Welcome()
+fun WelcomeLightPreview() =
+    MyAppMyThemePreview {
+        Welcome(rememberNavController())
     }
-}
 
-@Preview("Welcome Dark Theme", widthDp = 360, heightDp = 640)
+@Preview("Welcome - Dark Theme", widthDp = 360, heightDp = 640)
 @Composable
-fun WelcomeDarkPreview() {
-    MyTheme(darkTheme = true) {
-        Welcome()
+fun WelcomeDarkPreview() =
+    MyAppMyThemePreview(darkTheme = true) {
+        Welcome(rememberNavController())
     }
-}

@@ -16,4 +16,22 @@
     <string name="bloom_description">Beautiful home garden solutions</string>
     <string name="create_account">Create account</string>
     <string name="log_in">Log in</string>
+    <string name="log_in_with_email">Log in with email</string>
+    <string name="email_address">Email address</string>
+    <string name="password_placeholder">Password (8+ characters)</string>
+    <string name="log_in_message">By clicking below, you agree to our Terms of Use and consent to our Privacy Policy.</string>
+    <integer name="terms_of_use_start">36</integer>
+    <integer name="terms_of_use_end">48</integer>
+    <integer name="privacy_policy_start">68</integer>
+    <integer name="privacy_policy_end">82</integer>
+    <string name="search">Search</string>
+    <string name="browse_themes">Browse themes</string>
+    <!--<string name="theme_image_template">Theme image - %s</string>-->
+    <string name="design_your_home_garden">Design your home garden</string>
+    <!--<string name="plant_image_template">Plant image - %s</string>-->
+    <string name="filter">Filter</string>
+    <string name="home">Home</string>
+    <string name="favorite">Favorite</string>
+    <string name="profile">Profile</string>
+    <string name="cart">Cart</string>
 </resources>

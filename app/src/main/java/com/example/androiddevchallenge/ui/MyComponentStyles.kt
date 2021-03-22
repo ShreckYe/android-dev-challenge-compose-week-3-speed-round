@@ -9,15 +9,30 @@ import androidx.compose.material.ButtonDefaults
 import androidx.compose.material.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.composed
 import androidx.compose.ui.unit.dp
+import com.example.androiddevchallenge.ui.theme.gray
+import com.example.androiddevchallenge.ui.theme.white
+
+val defaultPadding = 16.dp
+
+fun Modifier.defaultPadding() =
+    padding(defaultPadding)
+
+fun Modifier.defaultHorizontalPadding() =
+    padding(start = defaultPadding, end = defaultPadding)
+
+fun Modifier.defaultStartPadding() =
+    padding(start = defaultPadding)
+
+val halfDefaultPadding = 8.dp
+
+fun Modifier.fillMaxWidthWithPadding() =
+    fillMaxWidth()
+        .defaultHorizontalPadding()
 
 fun Modifier.myRoundButtonModifier() =
-    composed {
-        fillMaxWidth() then
-                padding(start = 16.dp, end = 16.dp) then
-                height(48.dp)
-    }
+    fillMaxWidthWithPadding()
+        .height(48.dp)
 
 @Composable
 fun MyRoundButton(
@@ -27,8 +42,11 @@ fun MyRoundButton(
 ) =
     Button(
         onClick = onClick,
-        modifier = modifier then Modifier.myRoundButtonModifier(),
+        modifier = modifier.myRoundButtonModifier(),
         shape = MaterialTheme.shapes.medium,
         colors = ButtonDefaults.buttonColors(backgroundColor = MaterialTheme.colors.secondary),
         content = content
     )
+
+val isLightTheme @Composable get() = MaterialTheme.colors.isLight
+val defaultTextColor @Composable get() = if (isLightTheme) gray else white
