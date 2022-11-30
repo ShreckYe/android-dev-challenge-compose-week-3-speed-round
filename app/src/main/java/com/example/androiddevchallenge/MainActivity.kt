@@ -18,9 +18,13 @@ package com.example.androiddevchallenge
 import android.os.Bundle
 import androidx.activity.compose.setContent
 import androidx.appcompat.app.AppCompatActivity
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Column
+import androidx.compose.material.Button
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
-import androidx.compose.runtime.Composable
+import androidx.compose.material.Text
+import androidx.compose.runtime.*
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.androiddevchallenge.ui.Flow
 import com.example.androiddevchallenge.ui.theme.MyTheme
@@ -29,9 +33,18 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            MyTheme {
-                MyApp()
+            Column(verticalArrangement = Arrangement.Center) {
+                var number by remember { mutableStateOf(0) }
+                repeat(10) {
+                    Button(onClick = { number++ }) {
+                        Text(number.toString())
+                    }
+                }
             }
+
+            /*MyTheme {
+                MyApp()
+            }*/
         }
     }
 }
